@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tâm Thư Gửi Em Bé Nhi ❤</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            height: 100%;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            transition: background-color 0.5s;
+        }
+
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            color: #ff6b81;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        button {
+            display: block;
+            background-color: #ff6b81;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            margin: 10px auto;
+            transition: background-color 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        button:hover {
+            background-color: #ff4757;
+        }
+
+        #btn-no {
+            position: relative;
+            background-color: #d63031;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            p {
+                font-size: 0.9rem;
+            }
+
+            button {
+                font-size: 0.9rem;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Tâm thư gửi em bé Nhi iu dấu 💌</h1>
+        <p>Xin lỗi em vì đã làm tổn thương cảm xúc của em, anh sai rồi vì không nghĩ cho emm 🥺. Tha lỗi cho anh nhé, anh sẽ cố gắng bù đắp lại cho emm và khum chọc em như này nữaa 🥺</p>
+
+        <button id="btn-yes">Tha lỗi cho anh nha ❤️</button>
+        <button id="btn-no">Không</button>
+    </div>
+
+    <div id="player-container"></div>
+
+    <script>
+        const btnYes = document.getElementById('btn-yes');
+
+        // Khi nhấn vào nút "Tha lỗi cho anh nha ❤️", nhúng và phát nhạc từ YouTube
+        btnYes.addEventListener('click', function() {
+            document.body.style.backgroundColor = '#ffb6c1'; // Đổi nền thành màu hồng
+
+            // Nhúng iframe YouTube và phát nhạc
+            document.getElementById('player-container').innerHTML = `
+                <iframe width="0" height="0"
+                    src="https://www.youtube.com/embed/CKD0MxAn3TA?autoplay=1&loop=1&playlist=CKD0MxAn3TA"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen>
+                </iframe>
+            `;
+
+            alert('Yehh em bé tha lỗi gùiiii, đây chỉ là 1 phần anh làm để bù đắp cho em thui, chờ phần sau nhé iu lémmmm và sau đây là 1 bài hát nho nhỏ cho em bé <3 ');
+        });
+
+        // Xử lý nút "Không"
+        const btnNo = document.getElementById('btn-no');
+        let clickCount = 0;
+
+        btnNo.addEventListener('click', function() {
+            clickCount++;
+            if (clickCount === 1) {
+                btnNo.innerText = "Thôi mà em tha lỗi cho anh đi năn nỉ á 😭";
+            } else if (clickCount === 2) {
+                btnNo.innerText = "Thôi mà đừng ấn nút này nữaaa 🥺";
+            } else {
+                btnNo.innerText = "Không bao giờ 😤";
+                btnNo.addEventListener('mouseover', moveButton); // Bắt đầu nhảy loạn
+            }
+        });
+
+        function moveButton() {
+            const x = Math.floor(Math.random() * window.innerWidth - 100);
+            const y = Math.floor(Math.random() * window.innerHeight - 100);
+            btnNo.style.position = 'absolute';
+            btnNo.style.top = y + 'px';
+            btnNo.style.left = x + 'px';
+        }
+    </script>
+
+</body>
+</html>
